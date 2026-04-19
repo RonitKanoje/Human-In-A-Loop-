@@ -1,0 +1,16 @@
+# Core LLM + LangGraph
+langgraph
+langchain
+langchain-core
+langchain-openai
+langchain_ollama
+
+# UI
+streamlit
+
+# Utilities
+python-dotenv
+requests
+
+# Typing support (optional but good practice)
+typing-extensions
