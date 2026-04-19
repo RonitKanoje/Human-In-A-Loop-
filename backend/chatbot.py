@@ -1,5 +1,7 @@
 # backend.py
 
+import os
+
 from langgraph.graph import StateGraph, START
 from typing import TypedDict, Annotated
 from langchain_core.messages import BaseMessage, HumanMessage
@@ -13,6 +15,8 @@ from dotenv import load_dotenv
 import requests
 
 load_dotenv()
+
+ALPHA_KEY = os.getenv("ALPHA_KEY")  # Replace with your actual Alpha Vantage API key
 
 # -------------------
 # LLM
@@ -29,7 +33,7 @@ def get_stock_price(symbol: str) -> dict:
     
     url = (
         "https://www.alphavantage.co/query"
-        f"?function=GLOBAL_QUOTE&symbol={symbol}&apikey=YOUR_API_KEY"
+        f"?function=GLOBAL_QUOTE&symbol={symbol}&apikey={ALPHA_KEY}"
     )
     r = requests.get(url)
     return r.json()
